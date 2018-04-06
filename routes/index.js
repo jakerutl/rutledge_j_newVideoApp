@@ -13,7 +13,9 @@ router.get('/', function(req, res, next) {
       console.log(error);
     }else{
       res.render('home', { defaultMovie : rows[Math.floor(Math.random() * rows.length)],
-        data : JSON.stringify(rows)
+        data : JSON.stringify(rows),
+        mainpage : true,
+        videopage : false
       });
     }
   });
@@ -31,7 +33,9 @@ router.get('/movies/:id/:movie', (req, res) =>{
       res.render('moviepage',{
         movie : req.params.id,
         moviesrc : req.params.movie,
-        data : JSON.stringify(rows)
+        data : JSON.stringify(rows),
+        mainpage : false,
+        videopage : true
       });
     }
   });

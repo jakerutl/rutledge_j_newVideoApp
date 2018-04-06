@@ -1,0 +1,20 @@
+<section id="video">
+  <!--back button-->
+  <video autoplay>
+    <!--remember to add all of the fallback sources here. --->
+    <source src="/video/{{moviesrc}}" type="video/mp4">
+  </video>
+  <a href="/" class="back-button">
+    <i class="far fa-arrow-alt-circle-left"></i>
+  </a>
+
+  <!--- reviews go here-->
+  <article class="comments" v-if="reviews.length > 0">
+    <div v-for="review in reviews">
+      <i class="post-date">${ review.comments_date }</i>
+      <p>
+        ${ review.comments_copy }
+      </p>
+    </div>
+  </article>
+</section>
