@@ -1,12 +1,13 @@
 <section id="video">
   <!--back button-->
+  <a href="/" class="back-button">
+    <i class="far fa-arrow-alt-circle-left"></i>
+  </a>
+
   <video autoplay>
     <!--remember to add all of the fallback sources here. --->
     <source src="/video/{{moviesrc}}" type="video/mp4">
   </video>
-  <a href="/" class="back-button">
-    <i class="far fa-arrow-alt-circle-left"></i>
-  </a>
 
   <!--- reviews go here-->
   <article class="comments" v-if="reviews.length > 0">
@@ -17,4 +18,14 @@
       </p>
     </div>
   </article>
+
+  <!--aside > add our own reviews -->
+  <aside class="add-comment">
+    <h4 class="review-heading">Add a Review</h4>
+    <span class="hidden movId">{{movie}}</span>
+    <input type="range" name="myRange" id="myRange" min="0" max="5" step="1" v-model="numStars">
+    <label for="myRange">${numStars}-Star Review</label>
+    <textarea name="review" id="review" placeholder="What did you think?" v-model="review"></textarea>
+    <input type="submit" value="Submit your Review!" v-on:click="addReview">
+  </aside>
 </section>
